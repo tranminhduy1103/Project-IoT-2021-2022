@@ -1,14 +1,15 @@
 using AutoMapper;
-using BugTracker.Core.Database;
+using IoT.Core.Database;
 using IoT.Api.DataObjects;
 using IoT.Core.Entities;
-using IoT.Repositories;
+using IoT.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using IoT.Api.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,23 +26,23 @@ builder.Services.AddSwaggerGen(c =>
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
                 {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            },
-                            Scheme = "oauth2",
-                            Name = "Bearer",
-                            In = ParameterLocation.Header,
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                },
+                Scheme = "oauth2",
+                Name = "Bearer",
+                In = ParameterLocation.Header,
 
-                        },
-                        new List<string>()
-                    }
-                });
+            },
+            new List<string>()
+        }
+    });
 });
 
 builder.Services.AddControllers();
@@ -62,7 +63,8 @@ builder.Services.AddIdentity<User, Role>(options => {
         .AddUserManager<UserManager>()
         .AddDefaultTokenProviders();
 
-var secretKey = Encoding.UTF8.GetBytes("get_secret_key");
+var key = builder.Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+var secretKey = Encoding.UTF8.GetBytes(key.JWT_Secret);
 
 builder.Services.AddAuthentication(options =>
 {

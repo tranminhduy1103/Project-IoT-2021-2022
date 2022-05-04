@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoT.Api", "IoT.Api\IoT.Api.csproj", "{4F4FDB39-10A6-4D17-B705-9C6196E65913}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoT.Api", "IoT.Api\IoT.Api.csproj", "{4F4FDB39-10A6-4D17-B705-9C6196E65913}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoT.Contracts", "IoT.Contracts\IoT.Contracts.csproj", "{B74B98DE-39F9-4510-AD39-D5586D7D60EB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoT.Contracts", "IoT.Contracts\IoT.Contracts.csproj", "{B74B98DE-39F9-4510-AD39-D5586D7D60EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoT.Core", "IoT.Core\IoT.Core.csproj", "{7DD8713A-05FF-42F3-A292-5F49A4AC156F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoT.Core", "IoT.Core\IoT.Core.csproj", "{7DD8713A-05FF-42F3-A292-5F49A4AC156F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoT.Repositories", "IoT.Repositories\IoT.Repositories.csproj", "{DB56207A-B6C8-4375-8ECF-5D6AC2402196}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoT.Repository", "IoT.Repositories\IoT.Repository.csproj", "{DB56207A-B6C8-4375-8ECF-5D6AC2402196}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

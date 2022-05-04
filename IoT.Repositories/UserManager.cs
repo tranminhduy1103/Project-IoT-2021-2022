@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IoT.Repositories
+namespace IoT.Repository
 {
     public class UserManager : UserManager<User>
     {
