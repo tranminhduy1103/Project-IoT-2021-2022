@@ -10,8 +10,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using IoT.Api.Settings;
+using IoT.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -91,6 +94,8 @@ var mapperConfig = new MapperConfiguration(mc =>
 });
 IMapper mapper = mapperConfig.CreateMapper();
 builder.Services.AddSingleton(mapper);
+
+builder.Services.AddScoped<IRecordRepository, RecordRepository>();
 
 var app = builder.Build();
 

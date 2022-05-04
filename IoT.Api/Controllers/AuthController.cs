@@ -1,4 +1,6 @@
-﻿using IoT.Api.Models;
+﻿using AutoMapper;
+using IoT.Api.DataObjects;
+using IoT.Api.Models;
 using IoT.Api.Settings;
 using IoT.Core.Entities;
 using IoT.Repository;
@@ -14,19 +16,21 @@ using System.Text;
 
 namespace IoT.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
         private readonly UserManager _userManager;
         private readonly SignInManager<User> _signInManager;
         private readonly IOptionsMonitor<JwtConfig> _tokenConfigOptionsAccessor;
+        private readonly IMapper _mapper;
 
-        public AuthController(UserManager userManager, SignInManager<User> signInManager, IOptionsMonitor<JwtConfig> tokenConfigOptionsAccessor)
+        public AuthController(UserManager userManager, SignInManager<User> signInManager, IOptionsMonitor<JwtConfig> tokenConfigOptionsAccessor, IMapper mapper)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _tokenConfigOptionsAccessor = tokenConfigOptionsAccessor;
+            _mapper = mapper;
         }
 
         [HttpPost]
@@ -58,6 +62,29 @@ namespace IoT.Api.Controllers
                 roles
             });
         }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Register([FromBody] CreateUserDTO dto, CancellationToken cancellationToken = default)
+        {
+            var user = _mapper.Map<User>(dto);
+
+            var result = await _userManager.CreateAsync(user, dto.Password);
+            if (!result.Succeeded)
+            {
+                return BadRequest(result);
+            }
+
+            // Add user to specified roles
+            var addtoRoleResullt = await _userManager.AddToRolesAsync(user, dto.Roles);
+            if (!addtoRoleResullt.Succeeded)
+            {
+                return BadRequest("Fail to add role");
+            }
+
+            return CreatedAtAction(nameof(Login), new { dto.UserName, dto.Password });
+        }
+
 
         private async Task<string> GenerateToken(User user, JwtConfig tokenConfig)
         {
