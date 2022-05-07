@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace IoT.Core.Migrations
 {
-    public partial class Firstinit : Migration
+    public partial class FirstInit : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
