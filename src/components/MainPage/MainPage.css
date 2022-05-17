@@ -1,0 +1,41 @@
+.mainpage {
+    height: 100vh;
+}
+
+.main__top {
+    background-image: url('../../assets/Image/hanoi.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 80%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px 0 50px;
+}
+
+.main__bottom {
+    height: 20%;
+    color: black;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom__left {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottom__right {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.right__icon {
+    display: flex;
+    border: 1px solid transparent ;
+    border-radius: 50%;
+    justify-content: center;
+}
