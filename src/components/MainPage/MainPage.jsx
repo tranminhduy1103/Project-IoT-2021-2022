@@ -1,6 +1,7 @@
 import React from 'react'
 import './MainPage.css'
 import {BsCloudLightningRain} from 'react-icons/bs'
+import {BsCloudRain} from 'react-icons/bs'
 
 function MainPage() {
   return (
@@ -19,8 +20,7 @@ function MainPage() {
         <div className="main__bottom">
           <div className="bottom__left">
             <div className="left__rain">
-            <i class="left_icon fa-solid fa-cloud-rain"></i>
-            <h1>as</h1>
+            <div className="left__icon"><BsCloudRain/></div>
             </div>
             <div className="left__content">
               <div className="left__content-top">
@@ -35,20 +35,20 @@ function MainPage() {
           </div>
           <div className="bottom__right">
             <div className="right__content">
-              <div className="right__icon"><BsCloudLightningRain/></div>
-              <h3>Humidity(%)</h3>
+              <div className="right__icon1"><BsCloudLightningRain/></div>
+              <h3>Temperature(&deg;C)</h3>
               <h3>68</h3>
             </div>
 
             <div className="right__content">
-            <div className="right__icon"><BsCloudLightningRain/></div>
+            <div className="right__icon2"><BsCloudLightningRain/></div>
               <h3>Humidity(%)</h3>
               <h3>68</h3>
             </div>
             <div className="right__content">
-            <div className="right__icon"><BsCloudLightningRain/></div>
+            <div className="right__icon3"><BsCloudLightningRain/></div>
 
-              <h3>Humidity(%)</h3>
+              <h3>Pressure(hPa)</h3>
               <h3>68</h3>
             </div>
           </div>

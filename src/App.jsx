@@ -3,7 +3,7 @@ import { Router, Routes } from 'react-router-dom'
 import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import MainPage from './components/MainPage/MainPage'
-import { BrowserRouter,  Route, Link } from 'react-router-dom'
+import { BrowserRouter ,  Route, Link } from 'react-router-dom'
 
 const App = () => {
   return (
