@@ -3,36 +3,70 @@ import './Login.css'
 import BG from '../../assets/Image/bg.jpg'
 import { Link, useNavigate } from 'react-router-dom'
 import {useState, useEffect} from "react"
+import axios from 'axios'
+import { faLeaf } from '@fortawesome/free-solid-svg-icons'
+import { setUserSession } from '../Utils/Common'
+// import { set } from 'immer/dist/internal'
 
 
-function Login() {
 
-  const  [email, setEmail] = useState("");
+const Login  = () => {
+
+  const  [error, setError] = useState(null)
+  const  [loading, setLoading] = useState(false)
+  const  [username, setUsername] = useState("");
   const  [password, setPassword] = useState("");
   const navigate = useNavigate();
-  useEffect(() => {
-     if (localStorage.getItem('user-info')) {
-       navigate.push("/main")
-    }
-  })
+  // useEffect(() => {
+  //    if (localStorage.getItem('user-info')) {
+  //      navigate("/main")
+  //   }
+  // })
 
-  async function handleLogin () {
-    console.warn(email,password)
-    const item={email, password}
-    const result = await fetch("https://health-record-api.azurewebsites.net/api/Auth/Login",{
-      method: 'POST',
-      headers:{
-        "Content-Type": "application/json",
-        "Accept": "application/json"
+  // async function handleLogin () {
+  //   console.warn(email,password)
+  //   let item={email, password};
+  //   let result = await fetch("https://health-record-api.azurewebsites.net/api/Auth/Login",{
+  //     method: 'POST',
+  //     headers:{
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
 
-      },
-      body: JSON.stringify(item)
+  //     },
+  //     body:JSON.stringify(item)
+
+  //   });
+  //   result = await result.json();
+  //   localStorage.setItem("user-info",JSON.stringify(result))
+  //   navigate("/main")
+      
+  // }
+
+  const Login = (e) => {
+    setError(null);
+    setLoading(true);
+    axios.post("https://health-record-api.azurewebsites.net/api/Auth/Login", {
+      username: username,
+      password: password,
+    }).then(response => {
+      setLoading(false)
+      setUserSession(response.data.token, response.data.user)
+      navigate('/main')
+      console.log('response ...', response);
+    }).catch(error => {
+      setLoading(false);
+      if(error.response.status === 401 || error.response.status === 400){
+        setError(error.response.data.message);
+      }else {
+        setError("something wrong")
+      }
+      console.error('response ...', error);
 
     });
-    result = await result.json();
-    localStorage.setItem("user-info",JSON.stringify(result))
-    navigate.push("/main")
-      
+
+    // return username, password
+
+    // navigate('/main')
   }
 
 
@@ -47,16 +81,22 @@ function Login() {
                 <div className="login__form">
                   <div className="login__header">
                     <form>
-                      <input className='form__username' type="text" placeholder='Email' required
-                      onChange={(e) => setEmail(e.target.value)}/>
-                      <input className='form__password' type="password" placeholder='Password' required
-                      onChange={(e) => setPassword(e.target.value)}/>
+                      <input className='form__username' type="text" placeholder='email' required value={username}
+                      onChange={e => setUsername(e.target.value)}/>
+                      <input className='form__password' type="password" placeholder='Password' required value={password}
+                      onChange={e => setPassword(e.target.value)}/>
                     </form>
+                    <br/>
+                    {error && <p className='error'>{error}</p>}
                   </div>
                 </div>
                 <div className="sign">
-                <button className='btn btn-primary login__btn'
-                 onClick={handleLogin}> Login </button>
+                <button 
+                onClick={Login} 
+                className='btn btn-primary login__btn'
+                value={loading ? "Loading..." : "Login"}
+                disabled = {loading}
+                 > Login </button>
                 <div className="login__link">
                   <Link to = '/sign-up' className='btn btn__signup'>
                     SIGN UP
@@ -89,4 +129,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Login;

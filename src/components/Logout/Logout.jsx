@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Logout.css'
 
-function Logout() {
+const Logout = () => {
   return (
     <>
 
@@ -52,4 +52,4 @@ function Logout() {
   )
 }
 
-export default Logout
+export default Logout;

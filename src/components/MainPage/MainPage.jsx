@@ -2,19 +2,50 @@ import React from 'react'
 import './MainPage.css'
 import {BsCloudLightningRain} from 'react-icons/bs'
 import {BsCloudRain} from 'react-icons/bs'
+// import AV1 from '../../assets/Image/hanoi.jpg'
+// import AV2 from '../../assets/Image/caobang.jpg'
+// import AV3 from '../../assets/Image/danang.jpg'
+// import AV4 from '../../assets/Image/hagiang.jpg'
+// import AV5 from '../../assets/Image/halong.jpeg'
+// import AV6 from '../../assets/Image/nhatrang.jpg'
+// import AV7 from '../../assets/Image/phuquoc.jpg'
 
-function MainPage() {
+// import { Pagination } from 'swiper';
+
+// import { Swiper, SwiperSlide } from 'swiper/react';
+
+// // Import Swiper styles
+// import 'swiper/css';
+// import 'swiper/css/pagination';
+
+// const data = [
+//   {
+//     pic: AV1,
+//     time: "9:00 AM",
+//     date: "Friday, March 21, 2020",
+//     loca: "Ha Noi",
+//     city: "Viet Nam",
+//     icon: "",
+//     ex: "18 &deg;C",
+//     inter: "20 &deg;C",
+//     temp: "32",
+//     hum: "69",
+//     pres: "50"
+//   }
+// ]
+
+const MainPage =() => {
   return (
     <>
       <div className="mainpage">
         <div className="main__top">
           <div className="top__left">
             <h1> 9:AM </h1>
-            <h3>Monday, May 9, 2022</h3>
+            <h3>Friday, 26 March, 2022</h3>
           </div>
           <div className="top__right">
-            <h1>HaNoi</h1>
-            <h3>Viet Nam</h3>
+            <h1>Pho Co</h1>
+            <h3>Ha Noi</h3>
           </div>
         </div>
         <div className="main__bottom">
@@ -52,10 +83,14 @@ function MainPage() {
               <h3>68</h3>
             </div>
           </div>
-        </div>
+          </div>
+          )
+        
+        
+        
       </div>
     </>
   )
-}
+  }
 
 export default MainPage
