@@ -63,6 +63,7 @@ namespace IoT.Api.Controllers
                 return BadRequest(new { message = "User not found" });
 
             var record = _mapper.Map<Record>(dto);
+            record.DateIssued = DateTime.Now;
 
             _recordRepository.Add(record);
             await _recordRepository.SaveChangesAsync(cancellationToken);

@@ -18,7 +18,8 @@ namespace IoT.Api.DataObjects
 
             CreateMap<Record, RecordDTO>();
             CreateMap<RecordDTO, Record>()
-                .ForMember(ent => ent.Id, opt => opt.Ignore());
+                .ForMember(ent => ent.Id, opt => opt.Ignore())
+                .ForMember(ent => ent.DateIssued, opt => opt.Ignore());
         }
     }
 }
