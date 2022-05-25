@@ -14,6 +14,11 @@ using IoT.Contracts;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(p => p.AddPolicy("AllowAnySourceCors", builder =>
+{
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+}));
+
 builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfig"));
 
 builder.Services.AddSwaggerGen(c =>
@@ -110,6 +115,8 @@ if (!app.Environment.IsDevelopment())
 app.UseSwagger();
 
 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "IoT v1"));
+
+app.UseCors("AllowAnySourceCors");
 
 app.UseHttpsRedirection();
 
