@@ -34,10 +34,10 @@ import {BsCloudRain} from 'react-icons/bs'
 //   }
 // ]
 
-const MainPage =() => {
+function MainPage() {
   return (
-    <>
-      <div className="mainpage">
+    
+      <div div className="mainpage">
         <div className="main__top">
           <div className="top__left">
             <h1> 9:AM </h1>
@@ -52,6 +52,7 @@ const MainPage =() => {
           <div className="bottom__left">
             <div className="left__rain">
             <div className="left__icon"><BsCloudRain/></div>
+            <h2>Rainy</h2>
             </div>
             <div className="left__content">
               <div className="left__content-top">
@@ -84,13 +85,14 @@ const MainPage =() => {
             </div>
           </div>
           </div>
+          </div>
           )
         
         
         
-      </div>
-    </>
-  )
+      
+    
+  
   }
 
 export default MainPage

@@ -43,30 +43,30 @@ const Login  = () => {
   // }
 
   const Login = (e) => {
-    setError(null);
-    setLoading(true);
-    axios.post("https://health-record-api.azurewebsites.net/api/Auth/Login", {
-      username: username,
-      password: password,
-    }).then(response => {
-      setLoading(false)
-      setUserSession(response.data.token, response.data.user)
-      navigate('/main')
-      console.log('response ...', response);
-    }).catch(error => {
-      setLoading(false);
-      if(error.response.status === 401 || error.response.status === 400){
-        setError(error.response.data.message);
-      }else {
-        setError("something wrong")
-      }
-      console.error('response ...', error);
+    // setError(null);
+    // setLoading(true);
+    // axios.post("http://localhost:4000/", {
+    //   username: username,
+    //   password: password,
+    // }).then(response => {
+    //   setLoading(false)
+    //   setUserSession(response.data.token, response.data.user)
+    //   navigate('/main')
+    //   console.log('response ...', response);
+    // }).catch(error => {
+    //   setLoading(false);
+    //   if(error.response.status === 401 || error.response.status === 400){
+    //     setError(error.response.data.message);
+    //   }else {
+    //     setError("something wrong")
+    //   }
+    //   console.error('response ...', error);
 
-    });
+    // });
 
     // return username, password
 
-    // navigate('/main')
+    navigate('/main')
   }
 
 
