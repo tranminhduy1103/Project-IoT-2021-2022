@@ -68,7 +68,7 @@ namespace IoT.Api.Controllers
             _recordRepository.Add(record);
             await _recordRepository.SaveChangesAsync(cancellationToken);
 
-            return CreatedAtAction(nameof(Get), new { record.Id }, _mapper.Map<RecordDTO>(record));
+            return Ok();
         }
 
 

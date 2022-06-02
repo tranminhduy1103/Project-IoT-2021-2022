@@ -23,7 +23,7 @@ builder.Services.Configure<JwtConfig>(builder.Configuration.GetSection("JwtConfi
 
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "BugTracker.Api", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Iot.Api", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\"",
