@@ -49,11 +49,25 @@ namespace IoT.Api.Controllers
                 return BadRequest(new { message = "User not found" });
 
             var records = await _recordRepository.FindByUserId(userId, cancellationToken).ToListAsync();
-            if (records is null)
-                return NotFound();
+            if (records is null) return NotFound("No record found with user");
 
             return Ok(_mapper.Map<IEnumerable<RecordDTO>>(records));
         }
+
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetLatest(string userId, CancellationToken cancellationToken = default)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user is null)
+                return BadRequest(new { message = "User not found" });
+
+            var record = await _recordRepository.FindLatest(userId);
+            if(record is null) return NotFound("No record found with user");
+
+            return Ok(_mapper.Map<IEnumerable<RecordDTO>>(record));
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] RecordDTO dto, CancellationToken cancellationToken = default)
@@ -64,6 +78,7 @@ namespace IoT.Api.Controllers
 
             var record = _mapper.Map<Record>(dto);
             record.DateIssued = DateTime.Now;
+            record.User = user;
 
             _recordRepository.Add(record);
             await _recordRepository.SaveChangesAsync(cancellationToken);

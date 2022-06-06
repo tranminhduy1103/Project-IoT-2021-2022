@@ -14,7 +14,7 @@ namespace IoT.Core.Entities
         public DateTime DateIssued { get; set; }
         public float Temperature { get; set; }
         public float Humidity { get; set; }
-        public string? UserId { get; set; } = string.Empty;
-        public virtual User? User { get; set; } 
+        public string UserId { get; set; } = string.Empty;
+        public virtual User User { get; set; } 
     }
 }

@@ -10,5 +10,6 @@ namespace IoT.Contracts
     public interface IRecordRepository : IBaseRepository<Record>
     {
         IQueryable<Record> FindByUserId(string userId, CancellationToken cancellationToken = default);
+        Task<Record> FindLatest(string userId, CancellationToken cancellationToken = default);
     }
 }
