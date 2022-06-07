@@ -3,7 +3,7 @@
 }
 
 .main__top {
-    background-image: url('../../assets/Image/hanoi.jpg');
+    background-image: url('../../assets/Image/caobang.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -49,11 +49,11 @@
     align-items: center;
     margin: 30px 0 0 50px;
     width: 52px;
-    height: 62px;
+    height: 61px;
     font-size: 50px;
     border: 1px solid transparent;
     background: var(--color-primary);
-    border-radius: 20px;
+    border-radius: 50px;
 }
 .right__icon2 {
     margin: 30px 0 0 30px;
@@ -62,7 +62,7 @@
     font-size: 50px;
     border: 1px solid transparent;
     background: rgb(117, 184, 240);
-    border-radius: 20px;
+    border-radius: 50px;
 }
 .right__icon3 {
     margin: 30px 0 0 38px;

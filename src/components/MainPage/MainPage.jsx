@@ -1,7 +1,14 @@
-import React from 'react'
-import './MainPage.css'
-import {BsCloudLightningRain} from 'react-icons/bs'
-import {BsCloudRain} from 'react-icons/bs'
+import React from 'react';
+import './MainPage.css';
+import {BsCloudLightningRain} from 'react-icons/bs';
+import {BsCloudRain} from 'react-icons/bs';
+import {FaTemperatureHigh} from 'react-icons/fa';
+import {WiHumidity} from 'react-icons/wi'
+import {GiPressureCooker} from 'react-icons/gi'
+
+import { PrimaryButton } from '@fluentui/react';
+// import { Sunny } from "@fluentui/react-icons";
+
 // import AV1 from '../../assets/Image/hanoi.jpg'
 // import AV2 from '../../assets/Image/caobang.jpg'
 // import AV3 from '../../assets/Image/danang.jpg'
@@ -56,32 +63,32 @@ function MainPage() {
             </div>
             <div className="left__content">
               <div className="left__content-top">
-                <h3>28 &deg;C</h3>
-                <h3>External</h3>
+                <h3>27 &deg;C</h3>
+                <h3>Internal</h3>
               </div>
               <div className="left__content-bottom">
-              <h3>28 &deg;C</h3>
+              <h3>30 &deg;C</h3>
               <h3>External</h3>
               </div>
             </div>
           </div>
           <div className="bottom__right">
             <div className="right__content">
-              <div className="right__icon1"><BsCloudLightningRain/></div>
+              <div className="right__icon1"><FaTemperatureHigh/></div>
               <h3>Temperature(&deg;C)</h3>
-              <h3>68</h3>
+              <h3>27</h3>
             </div>
 
             <div className="right__content">
-            <div className="right__icon2"><BsCloudLightningRain/></div>
+            <div className="right__icon2"><WiHumidity/></div>
               <h3>Humidity(%)</h3>
-              <h3>68</h3>
+              <h3>71</h3>
             </div>
             <div className="right__content">
-            <div className="right__icon3"><BsCloudLightningRain/></div>
+            <div className="right__icon3"><GiPressureCooker/></div>
 
               <h3>Pressure(hPa)</h3>
-              <h3>68</h3>
+              <h3>45.3</h3>
             </div>
           </div>
           </div>

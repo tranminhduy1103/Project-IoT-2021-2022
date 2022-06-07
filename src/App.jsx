@@ -3,6 +3,7 @@ import { Router, Routes } from 'react-router-dom'
 import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import MainPage from './components/MainPage/MainPage'
+import Data from './components/Data/Data'
 import { BrowserRouter ,  Route, Link } from 'react-router-dom'
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
           <Route path='/' element = {<Login/>} exact/>
           <Route path='/sign-up' element = {<Logout/>}/>
           <Route path='/main' element = {<MainPage/>}/>
+          <Route path='/data' element = {<Data/>}/>
         </Routes>
       {/* </div> */}
     </BrowserRouter>
