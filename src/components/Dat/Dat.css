@@ -1,0 +1,42 @@
+table {
+    font-family: Arial, sans-serif;
+    border-collapse: collapse;
+  }
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    color: var(--color-bg-variant);
+}
+.dat__container {
+    width: 100%;
+    background-color: aliceblue;
+    height: 100vh;
+
+}
+
+.dat__table {
+    width: 100%;
+}
+
+.table__header {
+    background-color: #806ebb;
+    color: rgb(82, 80, 80) !important;
+    font-weight: 500;
+}
+
+.header {
+    color: white;
+}
+
+.temp,
+.humid {
+    font-size: 20px;
+}
+
+.button {
+    position: absolute;
+    left: 50%;
+    margin-top: 30px;
+    font-weight: 600;
+}

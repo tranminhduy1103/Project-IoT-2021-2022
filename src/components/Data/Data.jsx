@@ -1,9 +1,12 @@
 import React from 'react'
 import {FaTemperatureHigh} from 'react-icons/fa';
 import {WiHumidity} from 'react-icons/wi'
+import {useEffect, useState} from 'react'
+import axios from 'axios'
 import './Data.css'
 
 function Data() {
+
   return (
     <div className="container">
         <div className="content">

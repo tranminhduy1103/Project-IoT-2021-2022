@@ -4,6 +4,7 @@ import Login from './components/Login/Login'
 import Logout from './components/Logout/Logout'
 import MainPage from './components/MainPage/MainPage'
 import Data from './components/Data/Data'
+import Dat from './components/Dat/Dat'
 import { BrowserRouter ,  Route, Link } from 'react-router-dom'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
           <Route path='/sign-up' element = {<Logout/>}/>
           <Route path='/main' element = {<MainPage/>}/>
           <Route path='/data' element = {<Data/>}/>
+          <Route path='/dat' element = {<Dat/>}/>
         </Routes>
       {/* </div> */}
     </BrowserRouter>
