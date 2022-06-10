@@ -84,6 +84,12 @@ h2 {
     margin-left: 46px;
 }
 
+.rain {
+    margin-left: 58px;
+}
+.rain:hover {
+    color: var(--color-primary);
+}
 h3 {
     display: flex;
     justify-content: center;

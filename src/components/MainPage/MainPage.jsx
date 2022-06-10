@@ -4,6 +4,7 @@ import {BsCloudLightningRain} from 'react-icons/bs';
 import {BsCloudRain} from 'react-icons/bs';
 import {FaTemperatureHigh} from 'react-icons/fa';
 import {WiHumidity} from 'react-icons/wi'
+import { Link, useNavigate } from 'react-router-dom'
 import {GiPressureCooker} from 'react-icons/gi'
 
 import { PrimaryButton } from '@fluentui/react';
@@ -42,6 +43,8 @@ import AV7 from '../../assets/Image/phuquoc.jpg'
 // ]
 
 function MainPage() {
+  const navigate = useNavigate();
+
   return (
     
       <div div className="mainpage">
@@ -65,7 +68,9 @@ function MainPage() {
           <div className="bottom__left">
             <div className="left__rain">
             <div className="left__icon"><BsCloudRain/></div>
-            <h2>Rainy</h2>
+            <Link to = '/data' className='rain'>
+              Rainy
+              </Link>
             </div>
             <div className="left__content">
               <div className="left__content-top">
